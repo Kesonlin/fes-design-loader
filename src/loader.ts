@@ -14,7 +14,9 @@ const getImports = (components: ComponentType[]) => {
     return code
 }
 
-export default function(content: string) {
+export default function loader(content: string) {
+    console.log('contentcontentcontent', content);
+    
     const result = content.matchAll(/(?:var|const) (\w+) = _resolveComponent\("([\w-.]+)"\);?/gm)
     const components: ComponentType[] = Array.from(result).map(v => ({
         name: v[2],
